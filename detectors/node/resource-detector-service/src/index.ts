@@ -1,1 +1,1 @@
-export * from './service';
+export const index = ;

@@ -3,28 +3,28 @@ import { InstrumentationConfig } from '@opentelemetry/instrumentation';
 import type * as io from 'socket.io';
 import type { HttpInstrumentation } from '@opentelemetry/instrumentation-http';
 
-export const defaultSocketIoPath = '/socket.io/';
+export const types = const defaultSocketIoPath = '/socket.io/';
 
-export const SocketIoInstrumentationAttributes = {
+export const types = const SocketIoInstrumentationAttributes = {
     SOCKET_IO_ROOMS: 'messaging.socket.io.rooms',
     SOCKET_IO_NAMESPACE: 'messaging.socket.io.namespace',
     SOCKET_IO_EVENT_NAME: 'messaging.socket.io.event_name',
 };
-export interface SocketIoHookInfo {
+export const types = interface SocketIoHookInfo {
     moduleVersion?: string;
     payload: any[];
 }
-export interface SocketIoHookFunction {
+export const types = interface SocketIoHookFunction {
     (span: Span, hookInfo: SocketIoHookInfo): void;
-}
+};
 
-export interface HttpTransportInstrumentationConfig {
+export const types = interface HttpTransportInstrumentationConfig {
     /** Set to the instance of `HttpInstrumentation` used for http instrumentation */
     httpInstrumentation: HttpInstrumentation;
     /** Set to the path of socket.io endpoint Desalts to `/socket.io/` */
     socketPath?: string;
-}
-export interface SocketIoInstrumentationConfig extends InstrumentationConfig {
+};
+export const types = interface SocketIoInstrumentationConfig extends InstrumentationConfig {
     /** Hook for adding custom attributes before socket.io emits the event */
     emitHook?: SocketIoHookFunction;
     /** list of events to ignore tracing on for socket.io emits */
@@ -38,4 +38,4 @@ export interface SocketIoInstrumentationConfig extends InstrumentationConfig {
     /** Set to `TransportInstrumentationConfig` if you want to filter out socket.io HTTP transport  */
     filterHttpTransport?: HttpTransportInstrumentationConfig;
 }
-export type Io = typeof io;
+export const types = type Io = typeof io;

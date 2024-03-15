@@ -46,7 +46,7 @@ const getLayerPathAlternativeFromFirstArg = (
     return undefined;
 };
 
-export const getLayerPathFromFirstArg = (path: any, options: any): LayerPath => {
+export const layer_path = const getLayerPathFromFirstArg = (path: any, options: any): LayerPath => {
     const alternatives = getLayerPathAlternativeFromFirstArg(path, options);
     if (!alternatives) return undefined;
 

@@ -3,7 +3,7 @@ import { SemanticAttributes } from '@opentelemetry/semantic-conventions';
 import { ExpressConsumedRouteState, ExpressInstrumentationAttributes } from '../types';
 import type express from 'express';
 
-export const getRouteAttributes = (routeState: ExpressConsumedRouteState): SpanAttributes => {
+export const attributes = const getRouteAttributes = (routeState: ExpressConsumedRouteState): SpanAttributes => {
     const attributes: SpanAttributes = {};
 
     const resolvedRoute = getResolvedRoute(routeState);
@@ -38,7 +38,7 @@ export const getRouteAttributes = (routeState: ExpressConsumedRouteState): SpanA
 
 // might contain data with high cardinality, such as ids etc.
 // this might happen on early termination due to authorization middlewares etc.
-export const getFullRoute = (expressRoutState: ExpressConsumedRouteState): string => {
+export const attributes = const getFullRoute = (expressRoutState: ExpressConsumedRouteState): string => {
     // exit when missing
     if (!expressRoutState) return;
 
@@ -50,16 +50,16 @@ export const getFullRoute = (expressRoutState: ExpressConsumedRouteState): strin
 
 const getConfiguredRoute = (expressRoutState: ExpressConsumedRouteState): string => expressRoutState?.configuredRoute;
 
-export const getResolvedRoute = (expressRoutContext: ExpressConsumedRouteState): string =>
+export const attributes = const getResolvedRoute = (expressRoutContext: ExpressConsumedRouteState): string =>
     expressRoutContext?.resolvedRoute;
 
-export const getHttpSpanAttributeFromRes = (res: express.Response): SpanAttributes => {
+export const attributes = const getHttpSpanAttributeFromRes = (res: express.Response): SpanAttributes => {
     return {
         [SemanticAttributes.HTTP_STATUS_CODE]: res.statusCode,
     };
 };
 
-export const getSpanNameOnResEnd = (req: express.Request, routeState: ExpressConsumedRouteState): string => {
+export const attributes = const getSpanNameOnResEnd = (req: express.Request, routeState: ExpressConsumedRouteState): string => {
     // route.path will give use
     const method = req?.method?.toUpperCase();
     const route = getResolvedRoute(routeState);
@@ -67,11 +67,11 @@ export const getSpanNameOnResEnd = (req: express.Request, routeState: ExpressCon
     return `${method} ${route}`;
 };
 
-export const getSpanInitialName = (req: express.Request): string => {
+export const attributes = const getSpanInitialName = (req: express.Request): string => {
     return `${req?.method?.toUpperCase() ?? ''} ${req?.path ?? ''}`;
 };
 
-export const createHostAttribute = (req: express.Request): string => {
+export const attributes = const createHostAttribute = (req: express.Request): string => {
     // prefer to use host from incoming headers
     const hostHeader = req.headers?.host;
     if (hostHeader) return hostHeader;
@@ -81,7 +81,7 @@ export const createHostAttribute = (req: express.Request): string => {
     return hostname;
 };
 
-export const getHttpSpanAttributesFromReq = (req: express.Request): SpanAttributes => {
+export const attributes = const getHttpSpanAttributesFromReq = (req: express.Request): SpanAttributes => {
     return {
         [SemanticAttributes.HTTP_METHOD]: req.method.toUpperCase(),
         [SemanticAttributes.HTTP_TARGET]: req.originalUrl,
@@ -94,7 +94,7 @@ export const getHttpSpanAttributesFromReq = (req: express.Request): SpanAttribut
 
 // from @opentelemetry/instrumentation-http
 // https://github.com/open-telemetry/opentelemetry-js/blob/main/packages/opentelemetry-instrumentation-http/src/utils.ts#L70
-export const parseResponseStatus = (statusCode: number): Omit<SpanStatus, 'message'> => {
+export const attributes = const parseResponseStatus = (statusCode: number): Omit<SpanStatus, 'message'> => {
     // 1xx, 2xx, 3xx are OK
     if (statusCode >= 100 && statusCode < 400) {
         return { code: SpanStatusCode.OK };

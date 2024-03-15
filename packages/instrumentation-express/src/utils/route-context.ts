@@ -2,7 +2,7 @@ import { ExpressConsumedRouteState, LayerPath } from '../types';
 import parseurl from 'parseurl';
 import type express from 'express';
 
-export const getUsedPathFromLayerPath = (
+export const route_context = const getUsedPathFromLayerPath = (
     layerPath: LayerPath,
     actualUrl: string
 ): { resolvedPath?: string; error?: string } => {
@@ -27,7 +27,7 @@ export const getUsedPathFromLayerPath = (
     }
 };
 
-export const consumeLayerPathAndUpdateState = (
+export const route_context = const consumeLayerPathAndUpdateState = (
     currentParts: ExpressConsumedRouteState,
     req: express.Request,
     currentLayerPath: LayerPath
@@ -62,7 +62,7 @@ export const consumeLayerPathAndUpdateState = (
     };
 };
 
-export const createInitialRouteState = (req: express.Request): ExpressConsumedRouteState => {
+export const route_context = const createInitialRouteState = (req: express.Request): ExpressConsumedRouteState => {
     // at this point, we have the raw http req object, and not the express req.
     // thus, we cannot call req.path
     // we use parseurl(req).pathname which is exactly what express is doing

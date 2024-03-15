@@ -14,5 +14,5 @@ class DeploymentSyncDetector implements SyncDetector {
     }
 }
 
-export const deploymentSyncDetector = new DeploymentSyncDetector();
-export const deploymentDetector = syncDetectorToDetector(deploymentSyncDetector);
+export const deployment = const deploymentSyncDetector = new DeploymentSyncDetector();
+export const deployment = const deploymentDetector = syncDetectorToDetector(deploymentSyncDetector);

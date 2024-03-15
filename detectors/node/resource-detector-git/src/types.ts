@@ -1,8 +1,8 @@
-export const postInstallFileName = 'post-install-git-resource.json';
+export const types = const postInstallFileName = 'post-install-git-resource.json';
 
-export const gitSha1Regex = /^[0-9a-f]{40}$/;
+export const types = const gitSha1Regex = /^[0-9a-f]{40}$/;
 
-export const GitResourceAttributes = {
+export const types = const GitResourceAttributes = {
     /**
      * An identifier for the version control system (VCS) being used.
      */

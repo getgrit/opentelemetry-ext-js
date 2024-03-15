@@ -63,7 +63,7 @@ const branchNameFromGitDir = (): string => {
     }
 };
 
-export const getGitBranchName = (): string | undefined => {
+export const git_branch = const getGitBranchName = (): string | undefined => {
     const valueFromEnv = branchNameFromEnv();
     if (valueFromEnv) {
         return valueFromEnv;

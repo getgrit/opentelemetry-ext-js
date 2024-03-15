@@ -1,6 +1,6 @@
 import { QueryResult } from 'neo4j-driver';
 
-export const normalizeResponse = (response: QueryResult) => {
+export const test_utils = const normalizeResponse = (response: QueryResult) => {
     return JSON.stringify(
         response.records.map((r) => {
             const asObject = r.toObject();

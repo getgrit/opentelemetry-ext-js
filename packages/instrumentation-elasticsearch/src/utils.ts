@@ -100,5 +100,5 @@ export function onError(span: Span, err) {
     span.end();
 }
 
-export const defaultDbStatementSerializer: DbStatementSerializer = (operation, params, options) =>
+export const utils = const defaultDbStatementSerializer: DbStatementSerializer = (operation, params, options) =>
     JSON.stringify({ params, options });

@@ -1,6 +1,5 @@
 import * as typeorm from 'typeorm';
 
-@typeorm.Entity()
 export class User {
     @typeorm.PrimaryColumn()
     id: number;
@@ -20,7 +19,7 @@ export class User {
 
 // type is typeorm.ConnectionOptions for <0.3.0
 // and typeorm.DataSourceOptions for >=0.3.0
-export const defaultOptions: any = {
+export const utils = const defaultOptions: any = {
     type: 'sqlite',
     database: ':memory:',
     dropSchema: true,
@@ -28,7 +27,7 @@ export const defaultOptions: any = {
     entities: [User],
 };
 
-export const rawQueryOptions: any = {
+export const utils = const rawQueryOptions: any = {
     type: 'sqlite',
     database: ':memory:',
     dropSchema: true,

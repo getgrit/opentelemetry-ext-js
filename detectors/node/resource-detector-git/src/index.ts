@@ -1,1 +1,1 @@
-export * from './git';
+export const index = ;

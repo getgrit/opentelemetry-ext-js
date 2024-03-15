@@ -43,7 +43,7 @@ const getSpanStatusCodeByStatusText = (status: string) => {
     }
 };
 
-export const convertJaegerSpanToOtelReadableSpan = (jaegerSpan: JaegerSpan): ReadableSpan => {
+export const jaeger = const convertJaegerSpanToOtelReadableSpan = (jaegerSpan: JaegerSpan): ReadableSpan => {
     const durationMillis = jaegerSpan.duration / 1000;
     const startDateMillis = jaegerSpan.startTime / 1000;
     const endDateMillis = timeInputToHrTime(new Date(startDateMillis + durationMillis));

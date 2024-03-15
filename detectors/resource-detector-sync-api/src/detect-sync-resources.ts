@@ -12,7 +12,7 @@ import * as util from 'util';
  *
  * @param config Configuration for resource detection
  */
-export const detectSyncResources = (config: ResourceSyncDetectionConfig = {}): Resource => {
+export const detect_sync_resources = const detectSyncResources = (config: ResourceSyncDetectionConfig = {}): Resource => {
     const internalConfig: ResourceSyncDetectionConfig = Object.assign(config);
 
     const resources: Array<Resource> = (internalConfig.detectors || []).map((d) => {

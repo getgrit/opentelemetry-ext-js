@@ -167,7 +167,7 @@ const patchMessagesArrayToStartProcessSpans = <T>({
     });
 };
 
-export default {
+export const pubsub_propagation = {
     patchMessagesArrayToStartProcessSpans,
     patchArrayForProcessSpans,
 };

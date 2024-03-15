@@ -1,4 +1,4 @@
-export const ELASTICSEARCH_API_FILES = [
+export const helpers = const ELASTICSEARCH_API_FILES = [
     { path: 'index.js', operationClassName: 'client' },
     { path: 'api/async_search.js', operationClassName: 'asyncSearch' },
     { path: 'api/autoscaling.js', operationClassName: 'autoscaling' },
