@@ -2,12 +2,12 @@ import { Span } from '@opentelemetry/api';
 import type express from 'express';
 import { InstrumentationConfig } from '@opentelemetry/instrumentation';
 
-export const PATH_STORE: unique symbol = Symbol('opentelemetry.express.express-layer-path');
-export const REQ_SPAN: unique symbol = Symbol('opentelemetry.express.express-span-store');
-export const EXCEPTION_RECORDED: unique symbol = Symbol('opentelemetry.express.express-exception-recorded');
-export const CONSUMED_ROUTE_STATE: unique symbol = Symbol('opentelemetry.express.consumed-route-state');
+export const types = const PATH_STORE: unique symbol = Symbol('opentelemetry.express.express-layer-path');
+export const types = const REQ_SPAN: unique symbol = Symbol('opentelemetry.express.express-span-store');
+export const types = const EXCEPTION_RECORDED: unique symbol = Symbol('opentelemetry.express.express-exception-recorded');
+export const types = const CONSUMED_ROUTE_STATE: unique symbol = Symbol('opentelemetry.express.consumed-route-state');
 
-export const ExpressInstrumentationAttributes = {
+export const types = const ExpressInstrumentationAttributes = {
     /** This attribute will always contain the entire path. The part of the path that has been consumed by express will be shown as is (parameterized), and the leftover will be concatenated after (due to early termination or middleware that accept any path). */
     EXPRESS_ROUTE_FULL: 'express.route.full',
 
@@ -24,19 +24,19 @@ export const ExpressInstrumentationAttributes = {
     EXPRESS_UNHANDLED: 'express.unhandled',
 };
 
-export type LayerPathAlternative = {
+export const types = type LayerPathAlternative = {
     userSuppliedValue: string | RegExp;
     displayValue: string;
     regexp: RegExp;
-};
+}
 
-export type LayerPath = {
+export const types = type LayerPath = {
     fastSlash: boolean;
     alternatives: LayerPathAlternative | LayerPathAlternative[];
     displayValue: string;
-};
+}
 
-export interface ExpressConsumedRouteState {
+export const types = interface ExpressConsumedRouteState {
     resolvedRoute?: string;
     remainingRoute?: string;
     configuredRoute?: string;
@@ -45,47 +45,47 @@ export interface ExpressConsumedRouteState {
     errors?: string[];
 }
 
-export type Parameters<T> = T extends (...args: infer T) => any ? T : unknown[];
-export type PatchedRequest = {
+export const types = type Parameters<T> = T extends (...args: infer T) => any ? T : unknown[];
+export const types = type PatchedRequest = {
     [REQ_SPAN]?: Span;
     [CONSUMED_ROUTE_STATE]?: ExpressConsumedRouteState;
     __ot_middlewares?: string[]; // patch to forward the route to http instrumentation
 } & express.Request;
-export type PathParams = string | RegExp | Array<string | RegExp>;
+export const types = type PathParams = string | RegExp | Array<string | RegExp>;
 
 // https://github.com/expressjs/express/blob/master/lib/router/index.js#L53
-export type ExpressRouter = {
+export const types = type ExpressRouter = {
     params: { [key: string]: string };
     _params: string[];
     caseSensitive: boolean;
     mergeParams: boolean;
     strict: boolean;
     stack: ExpressLayer[];
-};
+}
 
 // https://github.com/expressjs/express/blob/master/lib/router/layer.js#L33
-export type ExpressLayer = {
+export const types = type ExpressLayer = {
     prototype: {
         handle_error: express.ErrorRequestHandler;
         handle_request: express.RequestHandler;
-    };
+    }
     handle: Function;
     [PATH_STORE]?: LayerPath;
     name: string;
     params: { [key: string]: string };
     path: string;
     regexp: RegExp;
-};
+}
 
-export interface ExpressRequestHookInformation {
+export const types = interface ExpressRequestHookInformation {
     moduleVersion?: string;
     req: express.Request;
     res: express.Response;
 }
 
-export type RequestHook = (span: Span, requestInfo: ExpressRequestHookInformation) => void;
+export const types = type RequestHook = (span: Span, requestInfo: ExpressRequestHookInformation) => void;
 
-export interface ExpressInstrumentationConfig extends InstrumentationConfig {
+export const types = interface ExpressInstrumentationConfig extends InstrumentationConfig {
     /** Hook for adding custom attributes before express start handling the request */
     requestHook?: RequestHook;
 

@@ -58,7 +58,7 @@ const shaFromEnvVariable = (): string => {
     }
 };
 
-export const getHeadSha = (): string | null => {
+export const git_sha = const getHeadSha = (): string | null => {
     // if running in CI context, try to get git sha from environment variables first
     const envSha = shaFromEnvVariable();
     if (envSha) {

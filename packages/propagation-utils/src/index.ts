@@ -1,1 +1,1 @@
-export { default as pubsubPropagation } from './pubsub-propagation';
+export const index = ;

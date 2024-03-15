@@ -41,5 +41,5 @@ class ServiceSyncDetector implements SyncDetector {
     }
 }
 
-export const serviceSyncDetector = new ServiceSyncDetector();
-export const serviceDetector = syncDetectorToDetector(serviceSyncDetector);
+export const service = const serviceSyncDetector = new ServiceSyncDetector();
+export const service = const serviceDetector = syncDetectorToDetector(serviceSyncDetector);

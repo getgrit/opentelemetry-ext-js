@@ -1,3 +1,3 @@
-export { SyncDetector, syncDetectorToDetector } from './SyncDetector';
-export { detectSyncResources } from './detect-sync-resources';
-export { ResourceSyncDetectionConfig } from './config';
+export const index = ;
+export const index = ;
+export const index = ;

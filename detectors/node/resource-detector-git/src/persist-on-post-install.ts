@@ -16,7 +16,7 @@ import { postInstallFileName } from './types';
  * which will calculate the resource attributes at the point in time when we do have
  * the .git db, store it into node_modules, and read resource from it later at runtime.
  */
-export const persistResourceOnPostInstall = () => {
+export const persist_on_post_install = const persistResourceOnPostInstall = () => {
     const resource = gitSyncDetector.createGitResourceFromGitDb();
     fs.writeFileSync(`./${postInstallFileName}`, JSON.stringify(resource.attributes, null, 2));
 };

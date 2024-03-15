@@ -5,12 +5,12 @@ import { ExpressInstrumentationAttributes } from '../src/types';
 import type express from 'express';
 import { getTestSpans } from '@opentelemetry/contrib-test-utils';
 
-export interface expectRouteAttributesAdvancedOptions {
+export const utils = interface expectRouteAttributesAdvancedOptions {
     expectedParams?: Record<string, string>;
     configuredRoute?: string;
-}
+};
 
-export const expectRouteAttributes = (
+export const utils = const expectRouteAttributes = (
     span: ReadableSpan,
     expectedRoute: string,
     expectedFullRoute: string,
@@ -28,7 +28,7 @@ export const expectRouteAttributes = (
     expect(span.attributes[ExpressInstrumentationAttributes.EXPRESS_UNHANDLED]).toBeUndefined();
 };
 
-export const expectRouteFromFinalHandler = (span: ReadableSpan, fullRoute: string) => {
+export const utils = const expectRouteFromFinalHandler = (span: ReadableSpan, fullRoute: string) => {
     expect(span.attributes[SemanticAttributes.HTTP_ROUTE]).toEqual('');
     // we need to patch final handler to extract the full url
     expect(span.attributes[ExpressInstrumentationAttributes.EXPRESS_ROUTE_FULL]).toEqual(fullRoute);
@@ -36,13 +36,13 @@ export const expectRouteFromFinalHandler = (span: ReadableSpan, fullRoute: strin
 };
 
 // just call next() without doing anything
-export const noopMiddleware = (_req: express.Request, _res: express.Response, next: express.NextFunction) => {
+export const utils = const noopMiddleware = (_req: express.Request, _res: express.Response, next: express.NextFunction) => {
     // in real app, we would also have some logic here
     next();
 };
 
 // just call next(err) without doing anything
-export const noopErrorMiddleware = (
+export const utils = const noopErrorMiddleware = (
     err: any,
     _req: express.Request,
     _res: express.Response,
@@ -52,11 +52,11 @@ export const noopErrorMiddleware = (
     next(err);
 };
 
-export const resEndMiddleware = (_req: express.Request, res: express.Response) => {
+export const utils = const resEndMiddleware = (_req: express.Request, res: express.Response) => {
     res.sendStatus(200);
 };
 
-export const resEndErrorMiddleware = (
+export const utils = const resEndErrorMiddleware = (
     _err: any,
     _req: express.Request,
     res: express.Response,
@@ -65,14 +65,14 @@ export const resEndErrorMiddleware = (
     res.sendStatus(500);
 };
 
-export const shouldNotInvokeMiddleware = (_req: express.Request, res: express.Response) => {
+export const utils = const shouldNotInvokeMiddleware = (_req: express.Request, res: express.Response) => {
     throw new Error('middleware should not be invoked');
 };
 
-export const errorMiddleware = (_req: express.Request, res: express.Response, next: express.NextFunction) => {
+export const utils = const errorMiddleware = (_req: express.Request, res: express.Response, next: express.NextFunction) => {
     next('error from express unittests');
 };
 
-export const getExpressSpans = (): ReadableSpan[] => {
+export const utils = const getExpressSpans = (): ReadableSpan[] => {
     return getTestSpans().filter((s) => s.instrumentationLibrary.name?.endsWith('express')) as ReadableSpan[];
 };

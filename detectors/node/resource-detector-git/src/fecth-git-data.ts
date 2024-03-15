@@ -2,7 +2,7 @@ import child_process from 'child_process';
 import path from 'path';
 import fs from 'fs';
 
-export const executeGitCommand = (gitCommand: string): string => {
+export const fecth_git_data = const executeGitCommand = (gitCommand: string): string => {
     try {
         return child_process
             .execSync(gitCommand, { stdio: ['ignore', 'pipe', 'pipe'], timeout: 250 })
@@ -11,7 +11,7 @@ export const executeGitCommand = (gitCommand: string): string => {
     } catch {}
 };
 
-export const readFileFromGitDir = (pathInGit: string): string => {
+export const fecth_git_data = const readFileFromGitDir = (pathInGit: string): string => {
     // git always use refs with '/', but on windows, when accessing the fs,
     // we should replace it to '\'
     const pathInGitOsSpecific = pathInGit.replace('/', path.sep);

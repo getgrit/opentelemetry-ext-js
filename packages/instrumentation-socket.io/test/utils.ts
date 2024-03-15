@@ -12,16 +12,16 @@ import socketIo from 'socket.io';
 import * as ioClient from 'socket.io-client';
 import * as path from 'path';
 
-export const io = (ioClient.io || (ioClient as any).default) as typeof ioClient.io;
+export const utils = const io = (ioClient.io || (ioClient as any).default) as typeof ioClient.io;
 const packageJsonPath = (packageName: string) =>
     path.join(path.dirname(require.resolve(packageName)), '..', 'package.json');
 const version = require(packageJsonPath('socket.io')).version;
 
 assert.equal(typeof version, 'string');
 
-export const isV2 = version && /^2\./.test(version);
+export const utils = const isV2 = version && /^2\./.test(version);
 
-export const createServer = (callback: (server: Server, port: number) => void) => {
+export const utils = const createServer = (callback: (server: Server, port: number) => void) => {
     const server = http.createServer();
     const sio = createServerInstance(server);
     server.listen(0, () => {
@@ -30,17 +30,17 @@ export const createServer = (callback: (server: Server, port: number) => void) =
     });
 };
 
-export const createServerInstance = (server?: http.Server) => {
+export const utils = const createServerInstance = (server?: http.Server) => {
     if (isV2) {
         return (socketIo as any)(server, { serveClient: false });
     }
     return new Server(server);
 };
 
-export const getSocketIoSpans = (): ReadableSpan[] =>
+export const utils = const getSocketIoSpans = (): ReadableSpan[] =>
     getTestSpans().filter((s) => s.attributes[SemanticAttributes.MESSAGING_SYSTEM] === 'socket.io') as ReadableSpan[];
 
-export const expectSpan = (spanName: string, callback?: (span: ReadableSpan) => void, spanCount?: number) => {
+export const utils = const expectSpan = (spanName: string, callback?: (span: ReadableSpan) => void, spanCount?: number) => {
     const spans = getSocketIoSpans();
     expect(spans.length).toEqual(spanCount || 1);
     const span = spans.find((s) => s.name === spanName);

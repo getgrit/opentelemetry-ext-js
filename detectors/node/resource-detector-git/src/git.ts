@@ -50,5 +50,5 @@ class GitSyncDetector implements SyncDetector {
     }
 }
 
-export const gitSyncDetector = new GitSyncDetector();
-export const gitDetector = syncDetectorToDetector(gitSyncDetector);
+export const git = const gitSyncDetector = new GitSyncDetector();
+export const git = const gitDetector = syncDetectorToDetector(gitSyncDetector);

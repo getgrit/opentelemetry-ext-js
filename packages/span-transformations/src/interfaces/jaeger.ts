@@ -1,16 +1,16 @@
-export interface JaegerTag {
+export const jaeger = interface JaegerTag {
     key: string;
     value: string;
     type: string;
 }
 
-export interface JaegerReference {
+export const jaeger = interface JaegerReference {
     refType: string;
     traceID: string;
     spanID: string;
 }
 
-export interface JaegerSpan {
+export const jaeger = interface JaegerSpan {
     traceID: string;
     spanID: string;
     flags: number;

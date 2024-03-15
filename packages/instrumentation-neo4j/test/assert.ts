@@ -3,7 +3,7 @@ import { ReadableSpan } from '@opentelemetry/sdk-trace-base';
 import { SemanticAttributes } from '@opentelemetry/semantic-conventions';
 import { SpanKind, SpanStatusCode } from '@opentelemetry/api';
 
-export const assertSpan = (span: ReadableSpan) => {
+export const assert = const assertSpan = (span: ReadableSpan) => {
     expect(span.kind).toBe(SpanKind.CLIENT);
     expect(span.status.code).toBe(SpanStatusCode.UNSET);
     expect(span.attributes[SemanticAttributes.DB_SYSTEM]).toEqual('neo4j');

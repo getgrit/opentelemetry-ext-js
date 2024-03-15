@@ -11,7 +11,7 @@ const writeGitConfig = (value: string) => {
     return executeGitCommand(`git config --local ${gitConfigName} ${value}`);
 };
 
-export const getCloneId = (): string | undefined => {
+export const git_clone_id = const getCloneId = (): string | undefined => {
     const aspectoGitCloneId = readGitConfig();
     if (aspectoGitCloneId) return aspectoGitCloneId;
 
